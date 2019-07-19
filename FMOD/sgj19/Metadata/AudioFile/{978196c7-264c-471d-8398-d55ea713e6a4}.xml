@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{978196c7-264c-471d-8398-d55ea713e6a4}">
+        <property name="assetPath">
+            <value>Howl_Maintheme_2.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>75.80734693877551</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{3e9f5117-16a0-4bda-b613-d29334fd6f23}</destination>
+        </relationship>
+    </object>
+</objects>
