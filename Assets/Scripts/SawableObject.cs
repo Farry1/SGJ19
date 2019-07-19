@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SawableObject : MonoBehaviour
+public class SawableObject : MonoBehaviour, ISawable
 {
     // Start is called before the first frame update
     void Start()
@@ -14,5 +14,10 @@ public class SawableObject : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GetSawed()
+    {
+
     }
 }
