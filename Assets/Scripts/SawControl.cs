@@ -38,22 +38,22 @@ public class SawControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!saw.isSawing)
+
+
+        float inputH = Input.GetAxis(hAxisName);
+        // do the same for the value of "Vertical" axis
+        float inputV = Input.GetAxis(vAxisName);
+
+        input = new Vector2(inputH, inputV);
+
+        Vector3 direction = new Vector3(input.x, input.y, 0f);
+        rb.AddForce(direction * speed, ForceMode2D.Impulse);
+        Vector3 rVelocity = rb.velocity;
+        if (rVelocity.magnitude > maxSpeed)
         {
-            float inputH = Input.GetAxis(hAxisName);
-            // do the same for the value of "Vertical" axis
-            float inputV = Input.GetAxis(vAxisName);
-
-            input = new Vector2(inputH, inputV);
-
-            Vector3 direction = new Vector3(input.x, input.y, 0f);
-            rb.AddForce(direction * speed, ForceMode2D.Impulse);
-            Vector3 rVelocity = rb.velocity;
-            if (rVelocity.magnitude > maxSpeed)
-            {
-                rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
-            }
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         }
+
 
 
     }

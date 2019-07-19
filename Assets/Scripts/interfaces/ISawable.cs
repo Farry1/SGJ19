@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface ISawable
 {
-    void GetSawed();
+    void GetSawed(Vector3 direction);
+
+    Vector3 GetPosition();
 }
