@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 639417597418806765}
   - component: {fileID: 374790769}
   - component: {fileID: 272539486}
+  - component: {fileID: 798019735}
   m_Layer: 0
   m_Name: Submarine
   m_TagString: Untagged
@@ -32,6 +33,7 @@ Transform:
   - {fileID: 639417598001790908}
   - {fileID: 639417597979479372}
   - {fileID: 639417597669846917}
+  - {fileID: 5050088365316761703}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,6 +77,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &798019735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639417597418806764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f12374ff5544b42a74e18e601e1fb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  submarineState: 0
+  firingInterval: 2
+  animationNames:
+  - SubmarineUpDown
+  - SubmarineLeftRight
 --- !u!1 &639417597669846916
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,3 +483,33 @@ PolygonCollider2D:
       - {x: 8.2699995, y: -1.055}
       - {x: 8.41, y: -1.035}
       - {x: 8.48, y: -0.98499995}
+--- !u!1 &2903278934758957115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5050088365316761703}
+  m_Layer: 0
+  m_Name: MissileLauncherLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5050088365316761703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2903278934758957115}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.23, y: -1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 639417597418806765}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
