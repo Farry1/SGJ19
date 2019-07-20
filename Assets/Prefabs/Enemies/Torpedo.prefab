@@ -386,6 +386,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9dc63e6cd7a9814e82937ed0a0e9bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionforce: {fileID: 6220978360564684695, guid: 692dbad3b614e024d9d9473c5c7f4ab4,
+    type: 3}
+  explosion: {fileID: 1988700043934609114, guid: 872ffac3bf19263479ad2f4a5db434f2,
+    type: 3}
 --- !u!1001 &4228600453602096499
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,16 +397,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4228600453346092859}
     m_Modifications:
-    - target: {fileID: 1447570533445846305, guid: 6e0ad1538281632468fb7fdbf373a4ea,
-        type: 3}
-      propertyPath: m_Name
-      value: BubblesTorpedo
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447570533445846305, guid: 6e0ad1538281632468fb7fdbf373a4ea,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 1447570533445846308, guid: 6e0ad1538281632468fb7fdbf373a4ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -457,6 +451,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447570533445846305, guid: 6e0ad1538281632468fb7fdbf373a4ea,
+        type: 3}
+      propertyPath: m_Name
+      value: BubblesTorpedo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447570533445846305, guid: 6e0ad1538281632468fb7fdbf373a4ea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1447570533445846311, guid: 6e0ad1538281632468fb7fdbf373a4ea,
         type: 3}
