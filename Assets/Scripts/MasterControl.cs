@@ -27,11 +27,15 @@ public class MasterControl : MonoBehaviour
     public float tempLerpMid;
     public float tempLerpEnd;
 
+    public Vector3 levelScale;
+
     public ParticleSystem Bubbles;
     public Vector2 bubblesSize;
 
     public enum GameState {start,mid,end}
     public GameState gs;
+    public Transform waterLevel;
+    public Vector3 waterLevelBasePos = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -44,18 +48,18 @@ public class MasterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        sawLevel += 0.01f;
         //sawLevel += 0.2f;
         //levelLevel += 0.1f;
 
-        if (sawLevel > 40)
-        {
-            gs = GameState.mid;
-        }
-        if (levelLevel > 40)
+        if (sawLevel >= 1)
         {
             gs = GameState.end;
         }
-
+        if(sawLevel > 10)
+        {
+            sawLevel = 10;
+        }
         StateCheck();
     }
 
@@ -102,12 +106,19 @@ public class MasterControl : MonoBehaviour
         if (Bubbles != null)
         {
             var mainBubbles = Bubbles.main;
-            mainBubbles.startLifetimeMultiplier = bubblesSize.x;
+            mainBubbles.startSizeMultiplier = bubblesSize.x/sawLevel;
         }
         Debug.Log("End Update");
         float tempSize = Mathf.Lerp(CamSizeMid, CamSizeEnd, tempLerpEnd);
         Vector3 tempPos = Vector3.Lerp(CamPosMid, CamPosEnd, tempLerpEnd);
         float tempScale = Mathf.Lerp(BoundSizeMid, BoundSizeEnd, tempLerpEnd);
+        Vector3 tempLevelScale = Vector3.Lerp(levelScale, new Vector3(1, 1, 1), 1 / sawLevel);
+        foreach (BackScroll back in Backgrounds)
+        {
+            back.transform.localScale = tempLevelScale;
+        }
+
+        waterLevel.localPosition = new Vector3(waterLevelBasePos.x, waterLevelBasePos.y-sawLevel, waterLevelBasePos.x);
         mainCam.orthographicSize = tempSize;
         mainCam.transform.position = tempPos;
         bounds.localScale = new Vector3(tempScale, tempScale);

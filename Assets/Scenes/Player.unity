@@ -850,7 +850,7 @@ MonoBehaviour:
   EnemiesSpawned: []
   EnemiesDeck: []
   bounds: {fileID: 1100680431}
-  sawLevel: 0
+  sawLevel: 1
   levelLevel: 0
   CamSizeStart: 10
   CamSizeMid: 20
@@ -861,12 +861,13 @@ MonoBehaviour:
   CamPosStart: {x: -1.5, y: -19.6, z: -1}
   CamPosMid: {x: -1.5, y: -8, z: -1}
   CamPosEnd: {x: -1.5, y: 9, z: -1}
-  TransSpeedMid: 0.01
+  TransSpeedMid: 0.1
   TransSpeedEnd: 0.01
   tempLerpMid: 0
   tempLerpEnd: 0
-  Bubbles: {fileID: 0}
-  bubblesSize: {x: 0, y: 0}
+  levelScale: {x: 0.3, y: 0.2, z: 1}
+  Bubbles: {fileID: 1410300189}
+  bubblesSize: {x: 0.1, y: 0}
   gs: 1
 --- !u!4 &816311323
 Transform:
@@ -1165,6 +1166,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3568408464254971235, guid: 521f734b9fd411042860325a693f21b9,
     type: 3}
   m_PrefabInstance: {fileID: 1609156344}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1410300189 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1447570533445846311, guid: 20611cd80698c1a47b77cde835d5a7cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2012251699}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1489422662
 GameObject:

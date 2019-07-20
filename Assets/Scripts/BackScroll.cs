@@ -96,7 +96,7 @@ public class BackScroll : MonoBehaviour
                 // Check if the child is already (partly) before the camera.
                 // We test the position first because the IsVisibleFrom
                 // method is a bit heavier to execute.
-                if (firstChild.transform.position.x + (lastSize.x) < mainCam.transform.position.x)
+                if (firstChild.transform.position.x + (lastSize.x+10) < mainCam.transform.position.x)
                 {
                     Debug.Log("I'm to the left!");
                     // If the child is already on the left of the camera,
