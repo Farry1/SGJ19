@@ -113,14 +113,6 @@ public class BackScroll : MonoBehaviour
                     // of the backgroundPart list.
                     backgroundPart.Remove(firstChild);
                     backgroundPart.Add(firstChild);
-                    if (firstChild.IsVisibleFrom(Camera.main) == false)
-                    {
-                        Debug.Log("I'm not visible!");
-                        // Get the last child position.
-
-
-
-                    }
                 }
             }
         }
