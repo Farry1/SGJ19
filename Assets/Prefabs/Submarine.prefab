@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 639417597418806765}
+  - component: {fileID: 374790769}
   m_Layer: 0
   m_Name: Submarine
   m_TagString: Untagged
@@ -33,6 +34,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &374790769
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639417597418806764}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &639417597669846916
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,8 +120,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1700347433
+  m_SortingLayer: 1
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: e4f0d10e339a15b4d92a79cfc7dfae6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -122,8 +144,8 @@ GameObject:
   m_Component:
   - component: {fileID: 639417597979479372}
   - component: {fileID: 639417597979479374}
-  - component: {fileID: 639417597979479373}
-  - component: {fileID: 639417597979479375}
+  - component: {fileID: 374790774}
+  - component: {fileID: 374790771}
   m_Layer: 10
   m_Name: Submarine_Cabin
   m_TagString: Untagged
@@ -193,25 +215,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &639417597979479373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639417597979479363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0180279aaa64319419ba12ca34762992, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  center: {x: 0, y: 0, z: 0}
-  pointOfCollision: {x: 0, y: 0}
-  normalOfCollider: {x: 0, y: 0, z: 0}
-  deathFX: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
-  maxHealth: 100
-  health: 100
---- !u!60 &639417597979479375
+--- !u!60 &374790774
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -236,14 +240,40 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -4.97, y: 1.175}
-      - {x: -4.99, y: 1.125}
-      - {x: -4.99, y: 1.0749999}
-      - {x: -4.5699997, y: 0.515}
-      - {x: 0.88, y: 0.505}
+    - - {x: 2.237082, y: 1.0831583}
+      - {x: 0.94037676, y: 1.0746369}
+      - {x: -0.8945041, y: 1.1262636}
+      - {x: -2.5677857, y: 1.1320238}
+      - {x: -3.7938156, y: 1.1166248}
+      - {x: -4.9316254, y: 1.105542}
+      - {x: -4.7840414, y: 0.55391645}
+      - {x: -4.590661, y: -0.79087895}
+      - {x: -2.704167, y: -0.79195666}
+      - {x: -0.8753481, y: -0.83723444}
+      - {x: 1.4053769, y: -0.77925277}
+      - {x: 3.055532, y: -0.7403363}
       - {x: 3.09, y: 0.505}
       - {x: 3.09, y: 1.0749999}
-      - {x: 2.97, y: 1.175}
+      - {x: 2.950542, y: 1.1555412}
+--- !u!114 &374790771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639417597979479363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d7567fbc76e974c91164f8c086c6d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
+  pointOfCollision: {x: 0, y: 0}
+  normalOfCollider: {x: 0, y: 0, z: 0}
+  fuse: {fileID: 0}
+  deathFX: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
+  maxHealth: 100
+  submarineRigidbody: {fileID: 374790769}
 --- !u!1 &639417598001790899
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,8 +340,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2010571561
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9ca25adab55327245bfcb7a3b93a4399, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -366,6 +396,10 @@ PolygonCollider2D:
       - {x: 5.98, y: 0.59499997}
       - {x: 5.83, y: 0.60499996}
       - {x: 5.7, y: 0.615}
+      - {x: 4.704081, y: 0.61109644}
+      - {x: 3.5168767, y: -1.6594882}
+      - {x: -5.1563435, y: -1.6966808}
+      - {x: -5.992612, y: 0.59554166}
       - {x: -6.71, y: 0.615}
       - {x: -6.81, y: 0.60499996}
       - {x: -6.93, y: 0.585}

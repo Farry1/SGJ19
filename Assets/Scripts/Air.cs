@@ -23,12 +23,10 @@ public class Air : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Collision with Air Trigger");
         //collision.gameObject.GetComponent<Rigidbody2D>().gravityScale = gravityScale;
 
         if(collision.tag == "Player" && !waterSurfaceCheck.isInWater)
         {
-            Debug.Log("Saw in Air");
             Saw.Instance.isInAir = true;
             Saw.Instance.sawRigidbody.gravityScale = gravityScale;
         }
@@ -40,7 +38,6 @@ public class Air : MonoBehaviour
 
         if (collision.tag == "Player")
         {
-            Debug.Log("Saw in Water");
             Saw.Instance.isInAir = false;
             Saw.Instance.sawRigidbody.gravityScale = 0;
         }
