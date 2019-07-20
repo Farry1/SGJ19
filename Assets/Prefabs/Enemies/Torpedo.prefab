@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4228600452295153287}
-  - component: {fileID: 4228600452295153286}
+  - component: {fileID: 1413487664}
   m_Layer: 12
   m_Name: Torpedo
   m_TagString: Sawable
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4228600452295153286
+--- !u!114 &1413487664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4228600452295153280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f96dafb72f2664345863774cec0380f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ed4014f635dde746a17dda69bcf5720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLeft: 100
-  minSpeed: 15
-  maxSpeed: 30
+  rigidbody: {fileID: 4228600453346092863}
+  minSpeed: 10
+  maxSpeed: 25
 --- !u!1 &4228600453047033082
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +393,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4228600453346092859}
     m_Modifications:
+    - target: {fileID: 1447570533445846305, guid: 6e0ad1538281632468fb7fdbf373a4ea,
+        type: 3}
+      propertyPath: m_Name
+      value: BubblesTorpedo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447570533445846305, guid: 6e0ad1538281632468fb7fdbf373a4ea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1447570533445846308, guid: 6e0ad1538281632468fb7fdbf373a4ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -447,16 +457,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447570533445846305, guid: 6e0ad1538281632468fb7fdbf373a4ea,
-        type: 3}
-      propertyPath: m_Name
-      value: BubblesTorpedo
-      objectReference: {fileID: 0}
-    - target: {fileID: 1447570533445846305, guid: 6e0ad1538281632468fb7fdbf373a4ea,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1447570533445846311, guid: 6e0ad1538281632468fb7fdbf373a4ea,
         type: 3}
