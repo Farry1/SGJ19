@@ -11,5 +11,7 @@ public interface ISawable
     Vector3 GetCollisionPoint();
     Vector3 GetCollisionNormal();
 
+    void SetHealth(float hp);
+
     void EndSaw();
 }

@@ -47,6 +47,8 @@ public class SawableFish : SawableObject
             if (health < 0)
             {
                 dead = true;
+                MasterControl.Instance.sawLevel += 1;
+                MasterControl.Instance.enemies.Remove(this.gameObject);
                 Debug.Log("Dead!");
 
                 if(moveToLeft != null)

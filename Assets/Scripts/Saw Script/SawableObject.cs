@@ -134,6 +134,11 @@ public class SawableObject : MonoBehaviour, ISawable
        
     }
 
+    public void SetHealth(float hp)
+    {
+        maxHealth = hp;
+    }
+
     public void EndSaw()
     {
         isBeingSawed = false;

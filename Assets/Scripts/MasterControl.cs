@@ -28,6 +28,7 @@ public class MasterControl : MonoBehaviour
     public float tempLerpEnd;
 
     public Vector3 levelScale;
+    public Vector3 tempLevelScale;
 
     public ParticleSystem Bubbles;
     public Vector2 bubblesSize;
@@ -36,6 +37,29 @@ public class MasterControl : MonoBehaviour
     public GameState gs;
     public Transform waterLevel;
     public Vector3 waterLevelBasePos = Vector3.zero;
+
+    public float tick;
+    public float tickMax;
+
+    public List<GameObject> enemies;
+    public GameObject enemyType;
+
+    private static MasterControl _instance;
+
+    public static MasterControl Instance { get { return _instance; } }
+
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +72,19 @@ public class MasterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sawLevel += 0.01f;
+        tick+=0.1f;
+        if (tick >= tickMax)
+        {
+            tickMax = tickMax + Random.Range(-10, 10);
+            tick = 0;
+            GameObject e = Instantiate(enemyType);
+            e.transform.position = new Vector3(100, Random.Range(-10, 10), 0);
+            e.transform.localScale = tempLevelScale;
+            e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
+            enemies.Add(e);
+        }
+
+        //sawLevel += 0.01f;
         //sawLevel += 0.2f;
         //levelLevel += 0.1f;
 
@@ -112,7 +148,7 @@ public class MasterControl : MonoBehaviour
         float tempSize = Mathf.Lerp(CamSizeMid, CamSizeEnd, tempLerpEnd);
         Vector3 tempPos = Vector3.Lerp(CamPosMid, CamPosEnd, tempLerpEnd);
         float tempScale = Mathf.Lerp(BoundSizeMid, BoundSizeEnd, tempLerpEnd);
-        Vector3 tempLevelScale = Vector3.Lerp(levelScale, new Vector3(1, 1, 1), 1 / sawLevel);
+        tempLevelScale = Vector3.Lerp(levelScale, new Vector3(1, 1, 1), 1 / sawLevel);
         foreach (BackScroll back in Backgrounds)
         {
             back.transform.localScale = tempLevelScale;
