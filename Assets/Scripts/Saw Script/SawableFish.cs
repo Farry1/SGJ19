@@ -19,6 +19,9 @@ public class SawableFish : SawableObject
     public Sprite alternativeFrontSide;
     public GameObject backSideGameObject;
 
+  
+
+   
 
     public override void Explode()
     {
@@ -33,6 +36,8 @@ public class SawableFish : SawableObject
 
     public override void GetSawed(Vector3 direction)
     {
+        isBeingSawed = true;
+
         if (sawTimer > 1f && !dead)
         {
             sawTimer = 0;
@@ -44,19 +49,27 @@ public class SawableFish : SawableObject
                 dead = true;
                 Debug.Log("Dead!");
 
-                if(backSideGameObject != null)
+                if(moveToLeft != null)
+                {
+                    moveToLeft.enabled = false;
+                    isBeingSawed = false;                    
+                }
+
+                if (backSideGameObject != null)
                 {
                     backSideGameObject.gameObject.SetActive(true);
                     backSideGameObject.GetComponent<Rigidbody2D>().AddForce(transform.right * 5, ForceMode2D.Impulse);
                 }
 
-                if(alternativeFrontSide != null)
+                if (alternativeFrontSide != null)
                 {
                     spriteRenderer.sprite = alternativeFrontSide;
                 }
 
                 rigidbody.isKinematic = false;
                 rigidbody.AddForce(transform.right * -5, ForceMode2D.Impulse);
+
+                
 
                 polygonCollider.enabled = false;
                 saw.ForceFromAbove(250);

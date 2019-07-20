@@ -49,7 +49,7 @@ public class Saw : MonoBehaviour
 
                 if (currentSawableObject != null)
                 {
-                    currentSawableObject.GetSawed(-sawRigidbody.transform.up);
+                    currentSawableObject.GetSawed(-sawRigidbody.transform.up);                    
                     GameObject obj = Instantiate(blood);
                     obj.transform.position = currentSawableObject.GetCollisionPoint();
                     Quaternion bloodRotation = Quaternion.LookRotation
@@ -63,8 +63,13 @@ public class Saw : MonoBehaviour
         }
         else
         {
-            currentSawableObject = null;
-            //sawRigidbod.constraints = RigidbodyConstraints2D.None;
+            if(currentSawableObject != null)
+            {
+                currentSawableObject.EndSaw();
+                currentSawableObject = null;
+                //sawRigidbod.constraints = RigidbodyConstraints2D.None;
+            }
+
         }
     }
 
@@ -89,7 +94,7 @@ public class Saw : MonoBehaviour
 
     public void EndSaw()
     {
-        isSawing = false;
+        isSawing = false;        
     }
 
     public void ForceFromAbove(float forcePower)

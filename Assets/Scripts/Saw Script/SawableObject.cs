@@ -30,8 +30,10 @@ public class SawableObject : MonoBehaviour, ISawable
     protected bool dead = false;
 
     public float maxHealth;
-    public float health;
+    protected float health;
+    protected bool isBeingSawed = false;
 
+    protected MoveToLeft moveToLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -40,12 +42,20 @@ public class SawableObject : MonoBehaviour, ISawable
         polygonCollider = GetComponent<PolygonCollider2D>();
         center = polygonCollider.bounds.center;
         health = maxHealth;
+        moveToLeft = GetComponentInParent<MoveToLeft>();
     }
 
     // Update is called once per frame
     void Update()
     {
         sawTimer += Time.deltaTime;
+
+        if (moveToLeft != null && isBeingSawed && !dead)
+        {
+            Debug.Log("Stop Fish from Moving");
+            rigidbody.velocity = new Vector3(0, 0, 0);
+            moveToLeft.enabled = false;
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -122,6 +132,16 @@ public class SawableObject : MonoBehaviour, ISawable
     public virtual void Explode()
     {
        
+    }
+
+    public void EndSaw()
+    {
+        isBeingSawed = false;
+        
+        if(moveToLeft != null && !dead)
+        {
+            moveToLeft.enabled = true;
+        }
     }
 
     public Vector3 GetPosition()
