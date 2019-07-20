@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 826810860}
-  speed: {x: 10, y: 0}
+  speed: {x: 1, y: 0}
   direction: {x: -1, y: 0}
   isLinkedToCamera: 0
   isLooping: 1
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 826810860}
-  speed: {x: 10, y: 0}
+  speed: {x: 2, y: 0}
   direction: {x: -2, y: 0}
   isLinkedToCamera: 0
   isLooping: 1
@@ -804,8 +804,10 @@ MonoBehaviour:
   tempLerpEnd: 0
   levelScale: {x: 1, y: 1, z: 1}
   tempLevelScale: {x: 0, y: 0, z: 0}
-  targetLevelScale: {x: 0, y: 0, z: 0}
-  levelScaleDelta: 0
+  targetLevelScale: {x: 0.3, y: 0.3, z: 1}
+  targetFishScale: {x: 0, y: 0, z: 0}
+  tempFishScale: {x: 0, y: 0, z: 0}
+  levelScaleDelta: 1
   Bubbles: {fileID: 1410300189}
   bubblesSize: {x: 0.1, y: 0}
   gs: 1
@@ -819,6 +821,10 @@ MonoBehaviour:
   enemyType:
   - {fileID: 4753337140772257706, guid: 95cdff1d050be9b478508f07ad4b2449, type: 3}
   - {fileID: 4228600452295153280, guid: 99917b285e7ac0c45b88716ff15ad78c, type: 3}
+  IsBoss: 0
+  BossSpawned: 0
+  submarine: {fileID: 639417597418806764, guid: 6c67a0a63bdc6b645a2f880632799959,
+    type: 3}
 --- !u!4 &816311323
 Transform:
   m_ObjectHideFlags: 0

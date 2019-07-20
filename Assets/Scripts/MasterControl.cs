@@ -30,6 +30,8 @@ public class MasterControl : MonoBehaviour
     public Vector3 levelScale;
     public Vector3 tempLevelScale;
     public Vector3 targetLevelScale;
+    public Vector3 targetFishScale;
+    public Vector3 tempFishScale;
     public float levelScaleDelta;
 
     public ParticleSystem Bubbles;
@@ -47,6 +49,10 @@ public class MasterControl : MonoBehaviour
 
     public List<GameObject> enemies;
     public List<GameObject> enemyType;
+
+    public bool IsBoss;
+    public bool BossSpawned;
+    public GameObject submarine;
 
     private static MasterControl _instance;
 
@@ -77,27 +83,27 @@ public class MasterControl : MonoBehaviour
     void Update()
     {
         tickFish += 0.1f;
-        if (tickFish >= tickMaxFish)
+        if (tickFish >= tickMaxFish && !IsBoss)
         {
             tickFish = 0;
             GameObject e = Instantiate(enemyType[0]);
             e.transform.position = new Vector3(100, Random.Range(-15, 10), 0);
             if (gs == MasterControl.GameState.end)
             {
-                e.transform.localScale = tempLevelScale;
+                e.transform.localScale = tempFishScale;
                 e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
             }
             enemies.Add(e);
         }
         tickTorpedo += 0.1f;
-        if (tickTorpedo >= tickMaxTorpedo)
+        if (tickTorpedo >= tickMaxTorpedo && !IsBoss)
         {
             tickTorpedo = 0;
             GameObject e = Instantiate(enemyType[1]);
             e.transform.position = new Vector3(100, Random.Range(-10, 10), 0);
             if (gs == MasterControl.GameState.end)
             {
-                e.transform.localScale = tempLevelScale;
+                e.transform.localScale = tempFishScale;
                 //e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
             }
             enemies.Add(e);
@@ -111,8 +117,15 @@ public class MasterControl : MonoBehaviour
         {
             gs = GameState.end;
         }
-        if(sawLevel > 10)
+        if(sawLevel >= 10)
         {
+            IsBoss = true;
+            if (!BossSpawned)
+            {
+                BossSpawned = true;
+                GameObject e = Instantiate(submarine);
+                e.transform.position = new Vector3(100, Random.Range(-10, 10), 0);
+            }
             sawLevel = 10;
         }
         StateCheck();
@@ -157,7 +170,8 @@ public class MasterControl : MonoBehaviour
     public void EndUpdate()
     {
         tempLerpEnd += TransSpeedEnd;
-        targetLevelScale = new Vector3(Mathf.Clamp(levelScale.x / (sawLevel/2),0.3f,1), Mathf.Clamp(levelScale.y / (sawLevel/2), 0.3f, 1), 1);
+        targetLevelScale = new Vector3(1, Mathf.Clamp(levelScale.y - (sawLevel/10), 0.3f, 1),1);
+        targetFishScale = new Vector3(Mathf.Clamp(levelScale.x - (sawLevel / 10), 0.3f, 1), Mathf.Clamp(levelScale.y - (sawLevel / 10), 0.3f, 1), 1);
         if (Bubbles != null)
         {
             var mainBubbles = Bubbles.main;
@@ -167,7 +181,8 @@ public class MasterControl : MonoBehaviour
         float tempSize = Mathf.Lerp(CamSizeMid, CamSizeEnd, tempLerpEnd);
         Vector3 tempPos = Vector3.Lerp(CamPosMid, CamPosEnd, tempLerpEnd);
         float tempScale = Mathf.Lerp(BoundSizeMid, BoundSizeEnd, tempLerpEnd);
-        tempLevelScale = Vector3.Lerp(levelScale, targetLevelScale, -Time.deltaTime* levelScaleDelta);
+        tempLevelScale = Vector3.Slerp(tempLevelScale, targetLevelScale, Time.smoothDeltaTime* levelScaleDelta);
+        tempFishScale = Vector3.Slerp(tempFishScale, targetFishScale, Time.smoothDeltaTime * levelScaleDelta);
         foreach (BackScroll back in Backgrounds)
         {
             back.transform.localScale = tempLevelScale;
