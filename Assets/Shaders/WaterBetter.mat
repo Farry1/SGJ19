@@ -27,6 +27,7 @@ Material:
     - Vector1_39047021: 0.1
     - Vector1_39222957: 1
     - Vector1_3D495A1F: 1.72
+    - Vector1_4090CEEF: 2
     - Vector1_489F9EEF: 3
     - Vector1_4B305923: 0.3
     - Vector1_4F92311A: 1
@@ -34,9 +35,11 @@ Material:
     - Vector1_5190E028: 1
     - Vector1_5232C9B8: 0.1
     - Vector1_5EB91206: 1
+    - Vector1_6462DBB1: 1
     - Vector1_6DA97D7: 1
     - Vector1_722CB011: 0.3
     - Vector1_7FB5584F: 0
+    - Vector1_88553CC6: 0.5
     - Vector1_8BF7F1BF: 1
     - Vector1_905986FC: 1
     - Vector1_986CF1D2: 14
@@ -51,6 +54,7 @@ Material:
     - Vector1_C6051FE9: 1
     - Vector1_CC89A15C: 1
     - Vector1_D42CC29E: 2
+    - Vector1_DD15A374: 1.02
     - Vector1_F0FA9185: 6
     - Vector1_F2029A8E: 1
     - Vector1_F4A73BA: 1

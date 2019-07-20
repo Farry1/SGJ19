@@ -164,7 +164,7 @@ MonoBehaviour:
   pointOfCollision: {x: 0, y: 0}
   normalOfCollider: {x: 0, y: 0, z: 0}
   fuse: {fileID: 3130733429293268746}
-  deathFX: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
+  deathFX: {fileID: 1447570533445846305, guid: dba80192d7b3f824587d9ce6bd404430, type: 3}
   maxHealth: 25
   alternativeFrontSide: {fileID: 21300000, guid: c185d5d9df9eb934c865474af5b17ef6,
     type: 3}

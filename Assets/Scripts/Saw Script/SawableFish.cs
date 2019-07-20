@@ -28,7 +28,7 @@ public class SawableFish : SawableObject
         for (int i = 0; i < 10; i++)
         {
             GameObject obj = Instantiate(deathFX);
-            obj.transform.position = center;
+            obj.transform.position = this.transform.position;
             obj.transform.rotation = Quaternion.FromToRotation(Vector3.back, new Vector3(Random.Range(0, 360), Random.Range(0, 360), 0f));
         }
     }
@@ -47,7 +47,7 @@ public class SawableFish : SawableObject
             if (health < 0)
             {
                 dead = true;
-                MasterControl.Instance.sawLevel += 2;
+                MasterControl.Instance.sawLevel += 0;
                 MasterControl.Instance.enemies.Remove(this.gameObject);
 
                 if(moveToLeft != null)
