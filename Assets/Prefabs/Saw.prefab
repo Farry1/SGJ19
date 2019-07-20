@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &480101373
 Transform:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSawing: 0
   sawRigidbody: {fileID: 6985097234055127623}
-  blood: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
+  blood: {fileID: 1447570533445846305, guid: dba80192d7b3f824587d9ce6bd404430, type: 3}
   sawThreshold: 5
   isInAir: 0
 --- !u!60 &358272833
@@ -163,7 +163,7 @@ PrefabInstance:
     - target: {fileID: 2720294866690151727, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Saw
       objectReference: {fileID: 0}
     - target: {fileID: 2720294866690151721, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
@@ -258,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 2720294866690151723, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.056530714
+      value: -0.05653
       objectReference: {fileID: 0}
     - target: {fileID: 2720294866690151720, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
@@ -558,7 +558,7 @@ PrefabInstance:
     - target: {fileID: 283772622933760163, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 0.72435385
+      value: 0.7243538
       objectReference: {fileID: 0}
     - target: {fileID: 283772622933760161, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}
