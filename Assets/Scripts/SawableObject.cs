@@ -18,12 +18,14 @@ public class SawableObject : MonoBehaviour, ISawable
 
     float sawTimer = 0;
 
-    public GameObject blood;
+    
 
     PolygonCollider2D polygonCollider;
-    Vector3 center;
-    Vector2 pointOfCollision;
-    Vector3 normalOfCollider;
+    public Vector3 center;
+    public Vector2 pointOfCollision;
+    public Vector3 normalOfCollider;
+
+    public GameObject deathFX;
 
     bool dead = false;
 
@@ -47,7 +49,7 @@ public class SawableObject : MonoBehaviour, ISawable
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        GameObject obj = Instantiate(blood, saw.sawRigidbody.transform);
+        
   
 
 
@@ -63,7 +65,7 @@ public class SawableObject : MonoBehaviour, ISawable
          
         }
 
-        obj.transform.SetParent(null);
+        
         normalOfCollider = collision.contacts[0].normal;
 
     }
@@ -117,11 +119,6 @@ public class SawableObject : MonoBehaviour, ISawable
     public void GetSawed(Vector3 direction)
     {
 
-        GameObject obj = Instantiate(blood, saw.sawRigidbody.transform);
-        obj.transform.SetParent(null);
-        obj.transform.position = pointOfCollision;
-
-
 
         if (sawTimer > 1f && !dead)
         {
@@ -135,12 +132,35 @@ public class SawableObject : MonoBehaviour, ISawable
                 Debug.Log("Dead!");
                 polygonCollider.enabled = false;
                 saw.ForceFromAbove(250);
+                Explode();
             }
+        }
+    }
+
+    public void Explode()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            GameObject obj = Instantiate(deathFX);
+            obj.transform.position = center;
+            obj.transform.rotation = Quaternion.FromToRotation(Vector3.back, new Vector3(Random.Range(0, 360), Random.Range(0, 360), 0f));
         }
     }
 
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+    public Vector3 GetRotation()
+    {
+        return transform.localRotation.eulerAngles;
+    }
+    public Vector3 GetCollisionPoint()
+    {
+        return pointOfCollision;
+    }
+    public Vector3 GetCollisionNormal()
+    {
+        return normalOfCollider;
     }
 }

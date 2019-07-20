@@ -531,9 +531,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0180279aaa64319419ba12ca34762992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blood: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
-  maxHealth: 50
-  health: 0
+  center: {x: 0, y: 0, z: 0}
+  pointOfCollision: {x: 0, y: 0}
+  normalOfCollider: {x: 0, y: 0, z: 0}
+  maxHealth: 1000000
+  health: 1000000
 --- !u!60 &1523260741
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -656,6 +658,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6985097234055127623, guid: fba0128f45487c843a89d4be6a254b75,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 7f6aa48e6b9d0d4448b7754ef2bb768c, type: 2}
     - target: {fileID: 4985591613033705044, guid: fba0128f45487c843a89d4be6a254b75,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -721,11 +728,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 6985097234055127623, guid: fba0128f45487c843a89d4be6a254b75,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 7f6aa48e6b9d0d4448b7754ef2bb768c, type: 2}
     - target: {fileID: 6985097234055127622, guid: fba0128f45487c843a89d4be6a254b75,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -783,6 +785,15 @@ PrefabInstance:
       propertyPath: sawRigidbody
       value: 
       objectReference: {fileID: 358272834}
+    - target: {fileID: 1053427979, guid: fba0128f45487c843a89d4be6a254b75, type: 3}
+      propertyPath: blood
+      value: 
+      objectReference: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b,
+        type: 3}
+    - target: {fileID: 1053427979, guid: fba0128f45487c843a89d4be6a254b75, type: 3}
+      propertyPath: sawThreshold
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 963194225, guid: fba0128f45487c843a89d4be6a254b75, type: 3}
       propertyPath: m_Layer
       value: 9

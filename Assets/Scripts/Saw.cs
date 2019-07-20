@@ -8,8 +8,11 @@ public class Saw : MonoBehaviour
 
     public Rigidbody2D sawRigidbody;
 
+    public GameObject blood;
 
     ISawable currentSawableObject = null;
+
+    public float sawThreshold=7;
 
 
     // Start is called before the first frame update
@@ -29,13 +32,22 @@ public class Saw : MonoBehaviour
 
            
 
-            if (Mathf.Abs(xVel) > 8)
+            if (Mathf.Abs(xVel) > sawThreshold)
             {
-                sawRigidbody.AddForce(-sawRigidbody.transform.up * 250);
+                sawRigidbody.AddForce(-sawRigidbody.transform.up * 100,ForceMode2D.Impulse);
 
 
                 if (currentSawableObject != null)
-                    currentSawableObject.GetSawed(-sawRigidbody.transform.up);                    
+                {
+                    currentSawableObject.GetSawed(-sawRigidbody.transform.up);
+                    GameObject obj = Instantiate(blood);
+                    obj.transform.position = currentSawableObject.GetCollisionPoint();
+                    Quaternion bloodRotation = Quaternion.LookRotation
+                    (currentSawableObject.GetCollisionNormal() - (Vector3)sawRigidbody.velocity, transform.TransformDirection(Vector3.down));
+                    obj.transform.rotation = Quaternion.FromToRotation(Vector3.back, new Vector3(currentSawableObject.GetCollisionNormal().x * (2 * xVel), 
+                        currentSawableObject.GetCollisionNormal().y, 
+                        currentSawableObject.GetCollisionNormal().z));
+                }
             }
 
 
