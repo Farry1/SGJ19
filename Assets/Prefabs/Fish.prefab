@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 808135422224466149}
   - component: {fileID: 808135422224466146}
   - component: {fileID: 808135422224466147}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fish_back
   m_TagString: Sawable
   m_Icon: {fileID: 0}
@@ -66,8 +66,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2010571561
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ba1e634cc179ba449b4ac0450d2ab6b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -96,7 +96,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7f6aa48e6b9d0d4448b7754ef2bb768c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -111,7 +111,8 @@ GameObject:
   m_Component:
   - component: {fileID: 808135422449240805}
   - component: {fileID: 808135422449240802}
-  m_Layer: 0
+  - component: {fileID: 2038283147}
+  m_Layer: 10
   m_Name: Fish
   m_TagString: Sawable
   m_Icon: {fileID: 0}
@@ -146,6 +147,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0180279aaa64319419ba12ca34762992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  center: {x: 0, y: 0, z: 0}
+  pointOfCollision: {x: 0, y: 0}
+  normalOfCollider: {x: 0, y: 0, z: 0}
+  deathFX: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
+  maxHealth: 50
+  health: 50
+--- !u!60 &2038283147
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808135422449240804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 7f6aa48e6b9d0d4448b7754ef2bb768c, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.4733212, y: 1.388883}
+      - {x: 0.11661965, y: 1.6526978}
+      - {x: -2.2494783, y: 1.015834}
+      - {x: -2.7812638, y: 0.20433044}
+      - {x: -2.537067, y: -0.8098923}
+      - {x: -0.2845786, y: -0.9955021}
+      - {x: 2.033853, y: -1.2286084}
+      - {x: 4.0827184, y: -0.3049326}
+      - {x: 3.8431933, y: 0.82184994}
 --- !u!1 &808135424267092867
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +198,7 @@ GameObject:
   - component: {fileID: 808135424267092864}
   - component: {fileID: 808135424267092865}
   - component: {fileID: 808135424267092878}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: fish_front
   m_TagString: Sawable
   m_Icon: {fileID: 0}
@@ -212,8 +253,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2010571561
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 70de827b3da0b914fa0778245e2e96eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -242,7 +283,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 7f6aa48e6b9d0d4448b7754ef2bb768c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
