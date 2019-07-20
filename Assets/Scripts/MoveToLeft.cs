@@ -16,7 +16,10 @@ public class MoveToLeft : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponentInChildren<SawableObject>().gameObject.GetComponent<Rigidbody2D>();
+        rigidbody = GetComponentInChildren<Rigidbody2D>();
+
+        
+
         speed = CalculateSpeed();
     }
 
