@@ -11,12 +11,14 @@ public class TorpedoHit : MonoBehaviour
         {
             Debug.Log("Deactivate Torpedo");
             Destroy(transform.root.gameObject);
+            MasterControl.Instance.Screenshake(3f);
         }
 
         if(collision.tag == "SawHandle")
         {
             Debug.Log("Kaboom!");
             Destroy(transform.root.gameObject);
+            MasterControl.Instance.Screenshake(3f);
         }
     }
 }

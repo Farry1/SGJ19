@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MasterControl : MonoBehaviour
 {
-    public Camera mainCam;
+    public Cinemachine.CinemachineVirtualCamera mainCam;
     public List<BackScroll> Backgrounds;
     public List<GameObject> EnemiesSpawned;
     public List<GameObject> EnemiesDeck;
@@ -54,6 +54,10 @@ public class MasterControl : MonoBehaviour
     public bool BossSpawned;
     public GameObject submarine;
 
+    public float ScreenshakeFrequency;
+    public float ScreenshakeFalloff;
+    public Cinemachine.CinemachineBasicMultiChannelPerlin shakyShaky;
+
     private static MasterControl _instance;
 
     public static MasterControl Instance { get { return _instance; } }
@@ -74,14 +78,19 @@ public class MasterControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainCam.orthographicSize = CamSizeStart;
+        mainCam.m_Lens.OrthographicSize = CamSizeStart;
         mainCam.transform.position = CamPosStart;
         bounds.localScale = new Vector3(BoundSizeStart, BoundSizeStart);
+        shakyShaky = mainCam.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        ScreenshakeFrequency -= ScreenshakeFalloff;
+        ScreenshakeFrequency =  Mathf.Clamp(ScreenshakeFrequency, 0, 3);
+        shakyShaky.m_FrequencyGain = ScreenshakeFrequency;
+
         tickFish += 0.1f;
         if (tickFish >= tickMaxFish && !IsBoss)
         {
@@ -162,7 +171,7 @@ public class MasterControl : MonoBehaviour
         float tempSize = Mathf.Lerp(CamSizeStart, CamSizeMid, tempLerpMid);
         Vector3 tempPos = Vector3.Lerp( CamPosStart, CamPosMid, tempLerpMid); 
         float tempScale = Mathf.Lerp( BoundSizeStart, BoundSizeMid, tempLerpMid);
-        mainCam.orthographicSize = tempSize;
+        mainCam.m_Lens.OrthographicSize = tempSize;
         mainCam.transform.position = tempPos;
         bounds.localScale = new Vector3(tempScale, tempScale);
 
@@ -189,8 +198,13 @@ public class MasterControl : MonoBehaviour
         }
 
         waterLevel.localPosition = new Vector3(waterLevelBasePos.x, waterLevelBasePos.y-sawLevel, waterLevelBasePos.x);
-        mainCam.orthographicSize = tempSize;
+        mainCam.m_Lens.OrthographicSize = tempSize;
         mainCam.transform.position = tempPos;
         bounds.localScale = new Vector3(tempScale, tempScale);
+    }
+
+    public void Screenshake(float value)
+    {
+        ScreenshakeFrequency += value;
     }
 }
