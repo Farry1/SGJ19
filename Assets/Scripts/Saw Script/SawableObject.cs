@@ -5,8 +5,8 @@ using UnityEngine;
 public class SawableObject : MonoBehaviour, ISawable
 {
 
-    Saw _saw;
-    Saw saw
+    protected Saw _saw;
+    protected Saw saw
     {
         get
         {
@@ -16,18 +16,18 @@ public class SawableObject : MonoBehaviour, ISawable
         }
     }
 
-    float sawTimer = 0;
+    protected float sawTimer = 0;
 
-    
+    protected Rigidbody2D rigidbody;
 
-    PolygonCollider2D polygonCollider;
+    protected PolygonCollider2D polygonCollider;
     public Vector3 center;
     public Vector2 pointOfCollision;
     public Vector3 normalOfCollider;
 
     public GameObject deathFX;
 
-    bool dead = false;
+    protected bool dead = false;
 
     public float maxHealth;
     public float health;
@@ -36,6 +36,7 @@ public class SawableObject : MonoBehaviour, ISawable
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody = GetComponent<Rigidbody2D>();
         polygonCollider = GetComponent<PolygonCollider2D>();
         center = polygonCollider.bounds.center;
         health = maxHealth;
@@ -49,25 +50,13 @@ public class SawableObject : MonoBehaviour, ISawable
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        
-  
-
-
-
-
-
-
-
         if (collision.gameObject.tag == "Player")
         {
             saw.ProceedSaw(this);
             pointOfCollision = collision.contacts[0].point;
          
-        }
-
-        
+        }        
         normalOfCollider = collision.contacts[0].normal;
-
     }
 
 
@@ -78,12 +67,7 @@ public class SawableObject : MonoBehaviour, ISawable
         {
             saw.EndSaw();
         }
-
     }
-
-
-
-
 
     public void MoveClosestColliderVertex(Vector3 direction)
     {
@@ -116,10 +100,8 @@ public class SawableObject : MonoBehaviour, ISawable
         polygonCollider.SetPath(0, points);
     }
 
-    public void GetSawed(Vector3 direction)
+    public virtual void GetSawed(Vector3 direction)
     {
-
-
         if (sawTimer > 1f && !dead)
         {
             sawTimer = 0;
@@ -137,14 +119,9 @@ public class SawableObject : MonoBehaviour, ISawable
         }
     }
 
-    public void Explode()
+    public virtual void Explode()
     {
-        for (int i = 0; i < 10; i++)
-        {
-            GameObject obj = Instantiate(deathFX);
-            obj.transform.position = center;
-            obj.transform.rotation = Quaternion.FromToRotation(Vector3.back, new Vector3(Random.Range(0, 360), Random.Range(0, 360), 0f));
-        }
+       
     }
 
     public Vector3 GetPosition()

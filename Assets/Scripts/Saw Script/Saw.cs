@@ -5,14 +5,28 @@ using UnityEngine;
 public class Saw : MonoBehaviour
 {
     public bool isSawing = false;
-
     public Rigidbody2D sawRigidbody;
-
     public GameObject blood;
-
     ISawable currentSawableObject = null;
-
     public float sawThreshold=7;
+    public bool isInAir = false;
+
+    private static Saw _instance;
+
+    public static Saw Instance { get { return _instance; } }
+
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -28,10 +42,6 @@ public class Saw : MonoBehaviour
         {
             
             float xVel = sawRigidbody.gameObject.transform.InverseTransformDirection(sawRigidbody.velocity).x;
-
-
-           
-
             if (Mathf.Abs(xVel) > sawThreshold)
             {
                 sawRigidbody.AddForce(-sawRigidbody.transform.up * 100,ForceMode2D.Impulse);
@@ -49,11 +59,6 @@ public class Saw : MonoBehaviour
                         currentSawableObject.GetCollisionNormal().z));
                 }
             }
-
-
-    
-
-
             //sawRigidbod.constraints = RigidbodyConstraints2D.FreezePositionY;
         }
         else
