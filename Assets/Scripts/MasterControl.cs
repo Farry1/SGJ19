@@ -29,6 +29,8 @@ public class MasterControl : MonoBehaviour
 
     public Vector3 levelScale;
     public Vector3 tempLevelScale;
+    public Vector3 targetLevelScale;
+    public float levelScaleDelta;
 
     public ParticleSystem Bubbles;
     public Vector2 bubblesSize;
@@ -96,12 +98,12 @@ public class MasterControl : MonoBehaviour
             if (gs == MasterControl.GameState.end)
             {
                 e.transform.localScale = tempLevelScale;
-                e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
+                //e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
             }
             enemies.Add(e);
         }
 
-        //sawLevel += 0.01f;
+        //sawLevel += 0.001f;
         //sawLevel += 0.2f;
         //levelLevel += 0.1f;
 
@@ -155,7 +157,7 @@ public class MasterControl : MonoBehaviour
     public void EndUpdate()
     {
         tempLerpEnd += TransSpeedEnd;
-        
+        targetLevelScale = new Vector3(Mathf.Clamp(levelScale.x / (sawLevel/2),0.3f,1), Mathf.Clamp(levelScale.y / (sawLevel/2), 0.3f, 1), 1);
         if (Bubbles != null)
         {
             var mainBubbles = Bubbles.main;
@@ -165,7 +167,7 @@ public class MasterControl : MonoBehaviour
         float tempSize = Mathf.Lerp(CamSizeMid, CamSizeEnd, tempLerpEnd);
         Vector3 tempPos = Vector3.Lerp(CamPosMid, CamPosEnd, tempLerpEnd);
         float tempScale = Mathf.Lerp(BoundSizeMid, BoundSizeEnd, tempLerpEnd);
-        tempLevelScale = Vector3.Lerp(levelScale, new Vector3(1, 1, 1), 1 / sawLevel);
+        tempLevelScale = Vector3.Lerp(levelScale, targetLevelScale, -Time.deltaTime* levelScaleDelta);
         foreach (BackScroll back in Backgrounds)
         {
             back.transform.localScale = tempLevelScale;

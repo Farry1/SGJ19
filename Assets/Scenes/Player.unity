@@ -802,8 +802,10 @@ MonoBehaviour:
   TransSpeedEnd: 0.01
   tempLerpMid: 0
   tempLerpEnd: 0
-  levelScale: {x: 0.5, y: 0.5, z: 1}
+  levelScale: {x: 1, y: 1, z: 1}
   tempLevelScale: {x: 0, y: 0, z: 0}
+  targetLevelScale: {x: 0, y: 0, z: 0}
+  levelScaleDelta: 0
   Bubbles: {fileID: 1410300189}
   bubblesSize: {x: 0.1, y: 0}
   gs: 1
