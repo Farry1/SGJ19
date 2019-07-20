@@ -38,8 +38,10 @@ public class MasterControl : MonoBehaviour
     public Transform waterLevel;
     public Vector3 waterLevelBasePos = Vector3.zero;
 
-    public float tick;
-    public float tickMax;
+    public float tickFish;
+    public float tickMaxFish;
+    public float tickTorpedo;
+    public float tickMaxTorpedo;
 
     public List<GameObject> enemies;
     public GameObject enemyType;
@@ -72,15 +74,30 @@ public class MasterControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tick+=0.1f;
-        if (tick >= tickMax)
+        tickFish += 0.1f;
+        if (tickFish >= tickMaxFish)
         {
-            tickMax = tickMax + Random.Range(-10, 10);
-            tick = 0;
+            tickFish = 0;
+            GameObject e = Instantiate(enemyType);
+            e.transform.position = new Vector3(100, Random.Range(-15, 10), 0);
+            if (gs == MasterControl.GameState.end)
+            {
+                e.transform.localScale = tempLevelScale;
+                e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
+            }
+            enemies.Add(e);
+        }
+        tickTorpedo += 0.1f;
+        if (tickTorpedo >= tickMaxTorpedo)
+        {
+            tickTorpedo = 0;
             GameObject e = Instantiate(enemyType);
             e.transform.position = new Vector3(100, Random.Range(-10, 10), 0);
-            e.transform.localScale = tempLevelScale;
-            e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
+            if (gs == MasterControl.GameState.end)
+            {
+                e.transform.localScale = tempLevelScale;
+                e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
+            }
             enemies.Add(e);
         }
 

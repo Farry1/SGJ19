@@ -25,6 +25,8 @@ public class SawableObject : MonoBehaviour, ISawable
     public Vector2 pointOfCollision;
     public Vector3 normalOfCollider;
 
+
+    public Fuse fuse;
     public GameObject deathFX;
 
     protected bool dead = false;

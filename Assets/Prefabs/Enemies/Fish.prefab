@@ -163,8 +163,9 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   pointOfCollision: {x: 0, y: 0}
   normalOfCollider: {x: 0, y: 0, z: 0}
+  fuse: {fileID: 3130733429293268746}
   deathFX: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
-  maxHealth: 50
+  maxHealth: 25
   alternativeFrontSide: {fileID: 21300000, guid: c185d5d9df9eb934c865474af5b17ef6,
     type: 3}
   backSideGameObject: {fileID: 4753337140268626635}
@@ -180,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f96dafb72f2664345863774cec0380f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLeft: 0
+  maxLeft: -100
   minSpeed: 11
   maxSpeed: 30
 --- !u!1 &4753337140268626635
@@ -505,6 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4753337140772257705}
+  - component: {fileID: 3130733429293268746}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -527,3 +529,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3130733429293268746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753337140772257706}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8480f08fe28a842a499ed7a7444de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuse: 5

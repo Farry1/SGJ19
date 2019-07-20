@@ -47,7 +47,7 @@ public class SawableFish : SawableObject
             if (health < 0)
             {
                 dead = true;
-                MasterControl.Instance.sawLevel += 1;
+                MasterControl.Instance.sawLevel += 0.1f;
                 MasterControl.Instance.enemies.Remove(this.gameObject);
                 Debug.Log("Dead!");
 
@@ -76,6 +76,7 @@ public class SawableFish : SawableObject
                 polygonCollider.enabled = false;
                 saw.ForceFromAbove(250);
                 Explode();
+                fuse.enabled = true;
             }
         }
     }
