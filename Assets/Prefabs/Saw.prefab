@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 480101373}
   - component: {fileID: 480101374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpperCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &480101373
 Transform:
   m_ObjectHideFlags: 0
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -98,8 +98,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -116,7 +116,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 18.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -155,9 +155,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4985591613033705044}
   - component: {fileID: 1053427979}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Saw
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,6 +194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSawing: 0
+  sawRigidbody: {fileID: 6985097234055127623}
+  blood: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
+  sawThreshold: 5
 --- !u!60 &358272833
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -219,161 +222,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.22999999, y: -0.89}
-      - {x: 0.29999998, y: -0.7}
-      - {x: 0.42999998, y: -0.96}
-      - {x: 0.45999998, y: -0.96}
-      - {x: 0.48, y: -0.94}
-      - {x: 0.56, y: -0.74}
-      - {x: 0.59, y: -0.71}
-      - {x: 0.65, y: -0.84999996}
-      - {x: 0.7, y: -0.96}
-      - {x: 0.72999996, y: -0.96}
-      - {x: 0.75, y: -0.94}
-      - {x: 0.78999996, y: -0.82}
-      - {x: 0.84999996, y: -0.7}
-      - {x: 0.93, y: -0.84999996}
-      - {x: 1, y: -0.96}
-      - {x: 1.03, y: -0.96999997}
-      - {x: 1.0799999, y: -0.88}
-      - {x: 1.13, y: -0.68}
-      - {x: 1.27, y: -0.93}
-      - {x: 1.3, y: -0.94}
-      - {x: 1.3399999, y: -0.88}
-      - {x: 1.39, y: -0.66999996}
-      - {x: 1.4499999, y: -0.75}
-      - {x: 1.54, y: -0.90999997}
-      - {x: 1.56, y: -0.90999997}
-      - {x: 1.5899999, y: -0.88}
-      - {x: 1.66, y: -0.71999997}
-      - {x: 1.68, y: -0.61}
-      - {x: 1.79, y: -0.79999995}
-      - {x: 1.8399999, y: -0.88}
-      - {x: 1.86, y: -0.88}
-      - {x: 1.89, y: -0.84}
-      - {x: 1.91, y: -0.76}
-      - {x: 1.93, y: -0.66999996}
-      - {x: 1.9799999, y: -0.64}
-      - {x: 2.06, y: -0.75}
-      - {x: 2.1399999, y: -0.84}
-      - {x: 2.1699998, y: -0.83}
-      - {x: 2.2, y: -0.74}
-      - {x: 2.23, y: -0.57}
-      - {x: 2.3899999, y: -0.81}
-      - {x: 2.4099998, y: -0.79999995}
-      - {x: 2.44, y: -0.76}
-      - {x: 2.5, y: -0.57}
-      - {x: 2.54, y: -0.53999996}
-      - {x: 2.57, y: -0.59999996}
-      - {x: 2.6299999, y: -0.69}
-      - {x: 2.6799998, y: -0.76}
-      - {x: 2.7, y: -0.76}
-      - {x: 2.73, y: -0.71999997}
-      - {x: 2.78, y: -0.53999996}
-      - {x: 2.83, y: -0.53}
-      - {x: 2.9399998, y: -0.7}
-      - {x: 2.97, y: -0.71}
-      - {x: 3.04, y: -0.53}
-      - {x: 3.06, y: -0.41}
-      - {x: 3.22, y: -0.65}
-      - {x: 3.24, y: -0.65999997}
-      - {x: 3.29, y: -0.55}
-      - {x: 3.34, y: -0.35999998}
-      - {x: 3.5, y: -0.64}
-      - {x: 3.54, y: -0.62}
-      - {x: 3.6, y: -0.38}
-      - {x: 3.62, y: -0.26}
-      - {x: 3.9399998, y: -0.099999994}
+    - - {x: -2.6285741, y: -0.74848884}
+      - {x: 2.6624835, y: -0.7452104}
       - {x: 3.9499998, y: 0.01}
-      - {x: 3.99, y: 0.44}
-      - {x: 3.99, y: 0.84999996}
       - {x: 3.97, y: 0.91999996}
       - {x: 3.9499998, y: 0.94}
-      - {x: 3.76, y: 0.90999997}
-      - {x: 3.4199998, y: 0.87}
       - {x: 2.6799998, y: 0.78999996}
-      - {x: 1.91, y: 0.71999997}
-      - {x: 1.52, y: 0.69}
-      - {x: 1.24, y: 0.66999996}
-      - {x: 0.90999997, y: 0.65}
-      - {x: 0.71999997, y: 0.64}
-      - {x: 0.5, y: 0.63}
-      - {x: 0.22, y: 0.62}
-      - {x: 0.21, y: 0.61}
-      - {x: -0.78999996, y: 0.61}
-      - {x: -0.79999995, y: 0.62}
-      - {x: -1.35, y: 0.65}
-      - {x: -1.61, y: 0.66999996}
-      - {x: -2.03, y: 0.71}
-      - {x: -2.3799999, y: 0.76}
-      - {x: -2.54, y: 0.77}
-      - {x: -3.54, y: 0.91999996}
-      - {x: -3.87, y: 0.97999996}
-      - {x: -3.99, y: 0.97999996}
+      - {x: -0.0051956773, y: 0.56050134}
       - {x: -3.99, y: 0.65999997}
       - {x: -3.98, y: 0.65}
       - {x: -3.98, y: -0.07}
-      - {x: -3.97, y: -0.089999996}
-      - {x: -3.58, y: -0.28}
-      - {x: -3.53, y: -0.58}
-      - {x: -3.46, y: -0.64}
-      - {x: -3.3999999, y: -0.55}
-      - {x: -3.28, y: -0.38}
-      - {x: -3.26, y: -0.63}
-      - {x: -3.1899998, y: -0.69}
-      - {x: -3.01, y: -0.42}
-      - {x: -2.99, y: -0.51}
-      - {x: -2.95, y: -0.68}
-      - {x: -2.9199998, y: -0.71999997}
-      - {x: -2.8899999, y: -0.71}
-      - {x: -2.76, y: -0.51}
-      - {x: -2.74, y: -0.51}
-      - {x: -2.71, y: -0.64}
-      - {x: -2.6499999, y: -0.77}
-      - {x: -2.61, y: -0.75}
-      - {x: -2.49, y: -0.56}
-      - {x: -2.45, y: -0.58}
-      - {x: -2.3999999, y: -0.77}
-      - {x: -2.34, y: -0.79999995}
-      - {x: -2.28, y: -0.72999996}
-      - {x: -2.19, y: -0.59}
-      - {x: -2.11, y: -0.79999995}
-      - {x: -2.08, y: -0.84}
-      - {x: -2.05, y: -0.83}
-      - {x: -1.91, y: -0.61}
-      - {x: -1.89, y: -0.68}
-      - {x: -1.8299999, y: -0.87}
-      - {x: -1.8, y: -0.89}
-      - {x: -1.77, y: -0.88}
-      - {x: -1.68, y: -0.71999997}
-      - {x: -1.63, y: -0.69}
-      - {x: -1.54, y: -0.91999996}
-      - {x: -1.51, y: -0.90999997}
-      - {x: -1.48, y: -0.89}
-      - {x: -1.37, y: -0.65999997}
-      - {x: -1.35, y: -0.71999997}
-      - {x: -1.26, y: -0.90999997}
-      - {x: -1.23, y: -0.90999997}
-      - {x: -1.1999999, y: -0.89}
-      - {x: -1.1, y: -0.68}
-      - {x: -0.97999996, y: -0.94}
-      - {x: -0.94, y: -0.95}
-      - {x: -0.89, y: -0.85999995}
-      - {x: -0.82, y: -0.66999996}
-      - {x: -0.7, y: -0.93}
-      - {x: -0.66999996, y: -0.95}
-      - {x: -0.64, y: -0.94}
-      - {x: -0.52, y: -0.72999996}
-      - {x: -0.5, y: -0.82}
-      - {x: -0.42, y: -0.97999996}
-      - {x: -0.35999998, y: -0.96}
-      - {x: -0.26999998, y: -0.7}
-      - {x: -0.22, y: -0.89}
-      - {x: -0.17, y: -0.97999996}
-      - {x: -0.13, y: -0.97999996}
-      - {x: 0.01, y: -0.7}
-      - {x: 0.14, y: -0.96999997}
-      - {x: 0.17999999, y: -0.97999996}
 --- !u!1001 &4985591613000120173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,6 +243,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SawPiece
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720294866690151727, guid: 3ab71c32b42098f4293126186832c5a4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720294866690151727, guid: 3ab71c32b42098f4293126186832c5a4,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2720294866690151721, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
@@ -456,6 +324,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2720294866690151720, guid: 3ab71c32b42098f4293126186832c5a4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8271d966d62fb84fa5b39d05d37151c,
+        type: 3}
     - target: {fileID: 2720294866690151723, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -474,19 +348,18 @@ PrefabInstance:
     - target: {fileID: 2720294866690151723, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: -1.897253
+      value: -1.897255
       objectReference: {fileID: 0}
     - target: {fileID: 2720294866690151723, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: -0.056530952
       objectReference: {fileID: 0}
-    - target: {fileID: 2720294866690151720, guid: 3ab71c32b42098f4293126186832c5a4,
+    - target: {fileID: 2720294866690151722, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
-      propertyPath: m_Sprite
+      propertyPath: m_Material
       value: 
-      objectReference: {fileID: 21300000, guid: c8271d966d62fb84fa5b39d05d37151c,
-        type: 3}
+      objectReference: {fileID: 6200000, guid: 7f6aa48e6b9d0d4448b7754ef2bb768c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab71c32b42098f4293126186832c5a4, type: 3}
 --- !u!1 &6985097234055127618 stripped
@@ -519,15 +392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandleRight
       objectReference: {fileID: 0}
-    - target: {fileID: 8927807718667219352, guid: 9d712d91adae5ff44b5395af8680f065,
+    - target: {fileID: 8927807718667219353, guid: 9d712d91adae5ff44b5395af8680f065,
         type: 3}
-      propertyPath: m_LinearDrag
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8927807718667219352, guid: 9d712d91adae5ff44b5395af8680f065,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 4
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8927807718667219365, guid: 9d712d91adae5ff44b5395af8680f065,
         type: 3}
@@ -599,6 +467,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8927807718667219352, guid: 9d712d91adae5ff44b5395af8680f065,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927807718667219352, guid: 9d712d91adae5ff44b5395af8680f065,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8927807718667219354, guid: 9d712d91adae5ff44b5395af8680f065,
         type: 3}
       propertyPath: m_Sprite
@@ -650,6 +528,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HandleLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 283772622933760092, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 283772622933760160, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}
@@ -721,37 +604,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 283772622933760163, guid: f6b4b6a8db6c7d8448225860945a9959,
-        type: 3}
-      propertyPath: m_ConnectedRigidBody
-      value: 
-      objectReference: {fileID: 6985097234055127623}
-    - target: {fileID: 283772622933760163, guid: f6b4b6a8db6c7d8448225860945a9959,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -5.1527467
-      objectReference: {fileID: 0}
-    - target: {fileID: 283772622933760163, guid: f6b4b6a8db6c7d8448225860945a9959,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0.7243541
-      objectReference: {fileID: 0}
-    - target: {fileID: 283772622933760161, guid: f6b4b6a8db6c7d8448225860945a9959,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5f56b4a312355444fbcfccacb1eaad5d,
-        type: 3}
-    - target: {fileID: 283772622933760161, guid: f6b4b6a8db6c7d8448225860945a9959,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 283772622933760161, guid: f6b4b6a8db6c7d8448225860945a9959,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 283772622933760094, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}
       propertyPath: rotationSpeed
@@ -771,6 +623,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AngularDrag
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 283772622933760161, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f56b4a312355444fbcfccacb1eaad5d,
+        type: 3}
+    - target: {fileID: 283772622933760161, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 283772622933760161, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 283772622933760163, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
+      propertyPath: m_ConnectedRigidBody
+      value: 
+      objectReference: {fileID: 6985097234055127623}
+    - target: {fileID: 283772622933760163, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -5.152748
+      objectReference: {fileID: 0}
+    - target: {fileID: 283772622933760163, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.7243538
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6b4b6a8db6c7d8448225860945a9959, type: 3}
