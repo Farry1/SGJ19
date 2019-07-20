@@ -49,7 +49,8 @@ public class Saw : MonoBehaviour
 
                 if (currentSawableObject != null)
                 {
-                    currentSawableObject.GetSawed(-sawRigidbody.transform.up);                    
+                    currentSawableObject.GetSawed(-sawRigidbody.transform.up);
+                    MasterControl.Instance.Screenshake(0.2f);
                     GameObject obj = Instantiate(blood);
                     obj.transform.position = currentSawableObject.GetCollisionPoint();
                     Quaternion bloodRotation = Quaternion.LookRotation

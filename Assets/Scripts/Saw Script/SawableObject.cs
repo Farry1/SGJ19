@@ -62,7 +62,7 @@ public class SawableObject : MonoBehaviour, ISawable
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Saw")
         {
             saw.ProceedSaw(this);
             pointOfCollision = collision.contacts[0].point;
@@ -75,7 +75,7 @@ public class SawableObject : MonoBehaviour, ISawable
     private void OnCollisionExit2D(Collision2D collision)
     {
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Saw")
         {
             saw.EndSaw();
         }
