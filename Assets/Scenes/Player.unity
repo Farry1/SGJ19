@@ -209,9 +209,9 @@ GameObject:
   m_Component:
   - component: {fileID: 121618198}
   - component: {fileID: 121618199}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Effects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -528,9 +528,9 @@ GameObject:
   m_Component:
   - component: {fileID: 498947081}
   - component: {fileID: 498947082}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: Effects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -806,7 +806,7 @@ MonoBehaviour:
   tempLevelScale: {x: 0, y: 0, z: 0}
   Bubbles: {fileID: 1410300189}
   bubblesSize: {x: 0.1, y: 0}
-  gs: 0
+  gs: 1
   waterLevel: {fileID: 1181329984}
   waterLevelBasePos: {x: 0, y: 0, z: 0}
   tickFish: 0
@@ -814,8 +814,9 @@ MonoBehaviour:
   tickTorpedo: 0
   tickMaxTorpedo: 20
   enemies: []
-  enemyType: {fileID: 4753337140772257706, guid: 95cdff1d050be9b478508f07ad4b2449,
-    type: 3}
+  enemyType:
+  - {fileID: 4753337140772257706, guid: 95cdff1d050be9b478508f07ad4b2449, type: 3}
+  - {fileID: 4228600452295153280, guid: 99917b285e7ac0c45b88716ff15ad78c, type: 3}
 --- !u!4 &816311323
 Transform:
   m_ObjectHideFlags: 0

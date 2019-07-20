@@ -44,7 +44,7 @@ public class MasterControl : MonoBehaviour
     public float tickMaxTorpedo;
 
     public List<GameObject> enemies;
-    public GameObject enemyType;
+    public List<GameObject> enemyType;
 
     private static MasterControl _instance;
 
@@ -78,7 +78,7 @@ public class MasterControl : MonoBehaviour
         if (tickFish >= tickMaxFish)
         {
             tickFish = 0;
-            GameObject e = Instantiate(enemyType);
+            GameObject e = Instantiate(enemyType[0]);
             e.transform.position = new Vector3(100, Random.Range(-15, 10), 0);
             if (gs == MasterControl.GameState.end)
             {
@@ -91,7 +91,7 @@ public class MasterControl : MonoBehaviour
         if (tickTorpedo >= tickMaxTorpedo)
         {
             tickTorpedo = 0;
-            GameObject e = Instantiate(enemyType);
+            GameObject e = Instantiate(enemyType[1]);
             e.transform.position = new Vector3(100, Random.Range(-10, 10), 0);
             if (gs == MasterControl.GameState.end)
             {
