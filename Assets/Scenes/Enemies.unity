@@ -270,31 +270,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 374790771, guid: 6c67a0a63bdc6b645a2f880632799959, type: 3}
-      propertyPath: fuse
-      value: 
-      objectReference: {fileID: 374790769}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c67a0a63bdc6b645a2f880632799959, type: 3}
---- !u!1 &374790768 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 639417597418806764, guid: 6c67a0a63bdc6b645a2f880632799959,
-    type: 3}
-  m_PrefabInstance: {fileID: 374790767}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &374790769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 374790768}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d8480f08fe28a842a499ed7a7444de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fuse: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,6 +573,7 @@ MonoBehaviour:
   normalOfCollider: {x: 0, y: 0, z: 0}
   fuse: {fileID: 73048967}
   deathFX: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
+  dead: 0
   maxHealth: 35
   shipRigidbody: {fileID: 73048968}
 --- !u!1001 &1088393403
@@ -744,36 +722,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4228600452295153286, guid: 99917b285e7ac0c45b88716ff15ad78c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99917b285e7ac0c45b88716ff15ad78c, type: 3}
---- !u!1 &1413487662 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4228600452295153280, guid: 99917b285e7ac0c45b88716ff15ad78c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1413487661}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1413487663 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 4228600453346092863, guid: 99917b285e7ac0c45b88716ff15ad78c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1413487661}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1413487664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1413487662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ed4014f635dde746a17dda69bcf5720, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody: {fileID: 1413487663}
-  minSpeed: 10
-  maxSpeed: 25
 --- !u!1 &1518946228
 GameObject:
   m_ObjectHideFlags: 0

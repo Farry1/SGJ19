@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1249087034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1249087035}
+  m_Layer: 13
+  m_Name: MissileLauncherTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1249087035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249087034}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710886, w: 0.7071048}
+  m_LocalPosition: {x: 0.52999973, y: -1.05, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 639417597418806765}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.00001}
 --- !u!1 &639417597418806764
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +42,8 @@ GameObject:
   - component: {fileID: 374790769}
   - component: {fileID: 272539486}
   - component: {fileID: 798019735}
-  m_Layer: 0
+  - component: {fileID: 8742957288100802092}
+  m_Layer: 13
   m_Name: Submarine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,6 +65,7 @@ Transform:
   - {fileID: 639417597979479372}
   - {fileID: 639417597669846917}
   - {fileID: 5050088365316761703}
+  - {fileID: 1249087035}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57,7 +89,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &272539486
 Animator:
   serializedVersion: 3
@@ -90,10 +122,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   submarineState: 0
-  firingInterval: 2
+  missilePrefab: {fileID: 4228600452295153280, guid: 99917b285e7ac0c45b88716ff15ad78c,
+    type: 3}
+  topLauncher: {fileID: 1249087034}
+  bottomLauncher: {fileID: 2903278934758957115}
+  explosion: {fileID: 1988700043934609114, guid: 872ffac3bf19263479ad2f4a5db434f2,
+    type: 3}
+  firingInterval: 1.25
   animationNames:
   - SubmarineUpDown
   - SubmarineLeftRight
+--- !u!114 &8742957288100802092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639417597418806764}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8480f08fe28a842a499ed7a7444de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuse: 10
 --- !u!1 &639417597669846916
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639417597669846917}
   - component: {fileID: 639417597669846918}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Submarine_Pipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,9 +236,9 @@ GameObject:
   - component: {fileID: 639417597979479374}
   - component: {fileID: 374790774}
   - component: {fileID: 374790771}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Submarine_Cabin
-  m_TagString: Untagged
+  m_TagString: Sawable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,8 +291,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2010571561
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 219103c53c91fae408a0047dab5400e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -309,9 +360,10 @@ MonoBehaviour:
   center: {x: 0, y: 0, z: 0}
   pointOfCollision: {x: 0, y: 0}
   normalOfCollider: {x: 0, y: 0, z: 0}
-  fuse: {fileID: 0}
-  deathFX: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
-  maxHealth: 100
+  fuse: {fileID: 8742957288100802092}
+  deathFX: {fileID: 1447570533445846305, guid: dba80192d7b3f824587d9ce6bd404430, type: 3}
+  dead: 0
+  maxHealth: 25
   submarineRigidbody: {fileID: 374790769}
 --- !u!1 &639417598001790899
 GameObject:
@@ -324,7 +376,7 @@ GameObject:
   - component: {fileID: 639417598001790908}
   - component: {fileID: 639417598001790909}
   - component: {fileID: 639417598001790910}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Submarine_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5050088365316761703}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: MissileLauncherLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2903278934758957115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.23, y: -1.4, z: 0}
+  m_LocalPosition: {x: -4.31, y: -1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 639417597418806765}

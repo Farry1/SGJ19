@@ -16,7 +16,7 @@ public class SawableSubmarine : SawableObject
         }
     }
 
-
+    
     public override void GetSawed(Vector3 direction)
     {
         if (sawTimer > 1f && !dead)
@@ -31,7 +31,8 @@ public class SawableSubmarine : SawableObject
                 Debug.Log("Dead!");
 
                 submarineRigidbody.isKinematic = false;
-                submarineRigidbody.AddForce(transform.right * -5, ForceMode2D.Impulse);
+                submarineRigidbody.gravityScale = 0.29f;
+                submarineRigidbody.AddForce(transform.right * -2, ForceMode2D.Impulse);
 
                 polygonCollider.enabled = false;
                 saw.ForceFromAbove(250);

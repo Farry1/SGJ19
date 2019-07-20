@@ -29,7 +29,7 @@ public class SawableObject : MonoBehaviour, ISawable
     public Fuse fuse;
     public GameObject deathFX;
 
-    protected bool dead = false;
+    public bool dead = false;
 
     public float maxHealth;
     protected float health;
