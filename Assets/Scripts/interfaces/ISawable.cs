@@ -10,4 +10,6 @@ public interface ISawable
     Vector3 GetRotation();
     Vector3 GetCollisionPoint();
     Vector3 GetCollisionNormal();
+
+    void EndSaw();
 }

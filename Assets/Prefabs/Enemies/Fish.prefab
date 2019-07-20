@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4753337139342893255}
   - component: {fileID: 4753337139342893253}
   - component: {fileID: 4753337139342893248}
+  - component: {fileID: 803366119}
   m_Layer: 10
   m_Name: Fish_Alive
   m_TagString: Untagged
@@ -30,9 +31,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4753337140268626634}
   m_Father: {fileID: 4753337140772257705}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4753337139342893254
 SpriteRenderer:
@@ -163,10 +165,24 @@ MonoBehaviour:
   normalOfCollider: {x: 0, y: 0, z: 0}
   deathFX: {fileID: 1447570533445846305, guid: d585882a77389904c90c8183d2a6200b, type: 3}
   maxHealth: 50
-  health: 50
   alternativeFrontSide: {fileID: 21300000, guid: c185d5d9df9eb934c865474af5b17ef6,
     type: 3}
   backSideGameObject: {fileID: 4753337140268626635}
+--- !u!114 &803366119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753337139342893250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96dafb72f2664345863774cec0380f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLeft: 0
+  minSpeed: 11
+  maxSpeed: 30
 --- !u!1 &4753337140268626635
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +213,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4753337140772257705}
+  m_Father: {fileID: 4753337139342893249}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4753337140268626633
@@ -507,7 +523,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4753337140268626634}
   - {fileID: 4753337139342893249}
   m_Father: {fileID: 0}
   m_RootOrder: 0
