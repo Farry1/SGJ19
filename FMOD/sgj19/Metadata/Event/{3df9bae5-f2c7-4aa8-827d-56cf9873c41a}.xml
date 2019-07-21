@@ -114,6 +114,9 @@
         <property name="timelockedOffset">
             <value>10.5</value>
         </property>
+        <property name="volume">
+            <value>-15.5</value>
+        </property>
         <relationship name="triggerConditions">
             <destination>{cf54d7be-86f8-4499-94d7-3349aba4ede5}</destination>
         </relationship>
@@ -218,7 +221,7 @@
             <value>0.58964929112034958</value>
         </property>
         <property name="value">
-            <value>10</value>
+            <value>-3.76836586</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{43532ed5-9da4-453d-b0e1-4bb7d53e3497}">
@@ -226,7 +229,7 @@
             <value>0.77276456111566849</value>
         </property>
         <property name="value">
-            <value>10</value>
+            <value>-3.76836586</value>
         </property>
     </object>
 </objects>
