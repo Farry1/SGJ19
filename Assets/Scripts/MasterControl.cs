@@ -42,10 +42,8 @@ public class MasterControl : MonoBehaviour
     public Transform waterLevel;
     public Vector3 waterLevelBasePos = Vector3.zero;
 
-    public float tickFish;
-    public float tickMaxFish;
-    public float tickTorpedo;
-    public float tickMaxTorpedo;
+    public List<float> tick;
+    public List<float> tickMax;
 
     public List<GameObject> enemies;
     public List<GameObject> enemyType;
@@ -91,10 +89,10 @@ public class MasterControl : MonoBehaviour
         ScreenshakeFrequency =  Mathf.Clamp(ScreenshakeFrequency, 0, 3);
         shakyShaky.m_FrequencyGain = ScreenshakeFrequency;
 
-        tickFish += 0.1f;
-        if (tickFish >= tickMaxFish && !IsBoss)
+        tick[0] += 0.1f;
+        if (tick[0] >= tickMax[0] && !IsBoss)
         {
-            tickFish = 0;
+            tick[0] = 0;
             GameObject e = Instantiate(enemyType[0]);
             e.transform.position = new Vector3(100, Random.Range(-15, 10), 0);
             if (gs == MasterControl.GameState.end)
@@ -104,16 +102,29 @@ public class MasterControl : MonoBehaviour
             }
             enemies.Add(e);
         }
-        tickTorpedo += 0.1f;
-        if (tickTorpedo >= tickMaxTorpedo && !IsBoss)
+        tick[1] += 0.1f;
+        if (tick[1] >= tickMax[1] && !IsBoss)
         {
-            tickTorpedo = 0;
+            tick[1] = 0;
             GameObject e = Instantiate(enemyType[1]);
             e.transform.position = new Vector3(100, Random.Range(-10, 10), 0);
             if (gs == MasterControl.GameState.end)
             {
                 e.transform.localScale = tempFishScale;
                 //e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth / sawLevel);
+            }
+            enemies.Add(e);
+        }
+        tick[2] += 0.1f;
+        if (tick[2] >= tickMax[2] && !IsBoss)
+        {
+            tick[2] = 0;
+            GameObject e = Instantiate(enemyType[2]);
+            e.transform.position = new Vector3(50, 31.8f - sawLevel*1.1f, 0);
+            if (gs == MasterControl.GameState.end)
+            {
+                e.transform.localScale = tempFishScale;
+                e.GetComponentInChildren<SawableObject>().SetHealth(e.GetComponentInChildren<SawableObject>().maxHealth);
             }
             enemies.Add(e);
         }
@@ -195,6 +206,17 @@ public class MasterControl : MonoBehaviour
         foreach (BackScroll back in Backgrounds)
         {
             back.transform.localScale = tempLevelScale;
+        }
+        foreach (GameObject e in enemies)
+        {
+            if (e != null)
+            {
+                e.transform.localScale = tempFishScale;
+            }
+            else
+            {
+                enemies.Remove(e);
+            }
         }
 
         waterLevel.localPosition = new Vector3(waterLevelBasePos.x, waterLevelBasePos.y-sawLevel, waterLevelBasePos.x);

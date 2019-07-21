@@ -10,7 +10,7 @@ public class SawableShip : SawableObject
         for (int i = 0; i < 10; i++)
         {
             GameObject obj = Instantiate(deathFX);
-            obj.transform.position = center;
+            obj.transform.position = this.transform.position;
             obj.transform.rotation = Quaternion.FromToRotation(Vector3.back, new Vector3(Random.Range(0, 360), Random.Range(0, 360), 0f));
         }
     }
@@ -28,7 +28,8 @@ public class SawableShip : SawableObject
             {
                 dead = true;
                 Debug.Log("Dead!");
-
+                MasterControl.Instance.sawLevel += 0.3f;
+                MasterControl.Instance.enemies.Remove(this.gameObject);
                 shipRigidbody.velocity = new Vector3(0, 0, 0);
                 shipRigidbody.constraints = RigidbodyConstraints2D.None;
                 shipRigidbody.gameObject.GetComponent<MoveToLeft>().enabled = false;

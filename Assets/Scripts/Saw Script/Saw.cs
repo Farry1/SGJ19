@@ -43,7 +43,7 @@ public class Saw : MonoBehaviour
         if (isSawing)
         {
 
-            sawSoundEmitter.Play();
+            //sawSoundEmitter.Play();
             float xVel = sawRigidbody.gameObject.transform.InverseTransformDirection(sawRigidbody.velocity).x;
             if (Mathf.Abs(xVel) > sawThreshold)
             {
@@ -67,7 +67,7 @@ public class Saw : MonoBehaviour
         }
         else
         {
-            sawSoundEmitter.Stop();
+            //sawSoundEmitter.Stop();
 
             if(currentSawableObject != null)
             {
