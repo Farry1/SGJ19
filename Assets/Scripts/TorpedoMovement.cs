@@ -14,9 +14,11 @@ public class TorpedoMovement : MonoBehaviour
     public float maxSpeed;
     float actualSpeed;
 
+
     void Start()
     {
         actualSpeed = CalculateSpeed();
+        FMODUnity.RuntimeManager.PlayOneShot(bubblyMovementsSound);
     }
 
     // Update is called once per frame
@@ -25,6 +27,10 @@ public class TorpedoMovement : MonoBehaviour
         Vector3 direction = transform.forward;
 
         rigidbody.AddForce(transform.right * actualSpeed);
+
+   
+        
+
     }
 
     private float CalculateSpeed()
