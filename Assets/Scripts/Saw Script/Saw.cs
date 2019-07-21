@@ -10,7 +10,7 @@ public class Saw : MonoBehaviour
     ISawable currentSawableObject = null;
     public float sawThreshold = 7;
     public bool isInAir = false;
-    public FMODUnity.StudioEventEmitter sawSoundEmitter;
+    private FMODUnity.StudioEventEmitter sawSoundEmitter;
 
     public bool sawAudioIsPlaying = false;
 
@@ -37,13 +37,21 @@ public class Saw : MonoBehaviour
     void Start()
     {
         sawSoundEmitter = GetComponent<FMODUnity.StudioEventEmitter>();
+        sawSoundEmitter.SetParameter("VolumeParameter", 0);
+        sawSoundEmitter.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+
+
         if (isSawing)
         {
+            sawSoundEmitter.SetParameter("VolumeParameter", Mathf.Clamp(MasterControl.Instance.ScreenshakeFrequency, 0, 1));
+
+
             float xVel = sawRigidbody.gameObject.transform.InverseTransformDirection(sawRigidbody.velocity).x;
             if (Mathf.Abs(xVel) > sawThreshold)
             {
@@ -52,6 +60,9 @@ public class Saw : MonoBehaviour
 
                 if (currentSawableObject != null)
                 {
+                    
+
+
                     currentSawableObject.GetSawed(-sawRigidbody.transform.up);
                     MasterControl.Instance.Screenshake(0.2f);
                     GameObject obj = Instantiate(blood);
@@ -67,6 +78,8 @@ public class Saw : MonoBehaviour
         }
         else
         {
+          
+
             if (currentSawableObject != null)
             {
                 currentSawableObject.EndSaw();
