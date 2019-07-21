@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{9ae24dc6-62dc-4cc9-86b2-b03a2eaffdce}">
+        <property name="assetPath">
+            <value>y2mate.com - big_explosion_sound_effects_mp3_pack_download_f0gB369NYFA.mp3</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>252.05551020408163</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{3e9f5117-16a0-4bda-b613-d29334fd6f23}</destination>
+        </relationship>
+    </object>
+</objects>

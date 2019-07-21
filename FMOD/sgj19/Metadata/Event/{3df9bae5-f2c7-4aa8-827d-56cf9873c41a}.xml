@@ -114,6 +114,9 @@
         <property name="timelockedOffset">
             <value>10.5</value>
         </property>
+        <property name="volume">
+            <value>-15.5</value>
+        </property>
         <relationship name="triggerConditions">
             <destination>{cf54d7be-86f8-4499-94d7-3349aba4ede5}</destination>
         </relationship>

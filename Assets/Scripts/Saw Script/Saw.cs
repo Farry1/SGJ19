@@ -14,6 +14,9 @@ public class Saw : MonoBehaviour
 
     public bool sawAudioIsPlaying = false;
 
+    public float ScreechFrequency;
+    public float ScreechFalloff;
+
 
     private static Saw _instance;
 
@@ -44,8 +47,9 @@ public class Saw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        sawSoundEmitter.SetParameter("VolumeParameter", Mathf.Clamp(MasterControl.Instance.ScreenshakeFrequency, 0, 1));
+        ScreechFrequency -= ScreechFalloff;
+        ScreechFrequency = Mathf.Clamp(ScreechFrequency, 0, 1);
+        sawSoundEmitter.SetParameter("VolumeParameter", ScreechFrequency);
 
         if (isSawing)
         {
@@ -65,6 +69,7 @@ public class Saw : MonoBehaviour
 
                     currentSawableObject.GetSawed(-sawRigidbody.transform.up);
                     MasterControl.Instance.Screenshake(0.2f);
+                    Screech(0.1f);
                     GameObject obj = Instantiate(blood);
                     obj.transform.position = currentSawableObject.GetCollisionPoint();
                     Quaternion bloodRotation = Quaternion.LookRotation
@@ -121,4 +126,9 @@ public class Saw : MonoBehaviour
         sawRigidbody.AddForce(-sawRigidbody.transform.up * forcePower, ForceMode2D.Impulse);
     }
 
+    public void Screech(float value)
+    {
+        ScreechFrequency += value;
+    }
 }
+

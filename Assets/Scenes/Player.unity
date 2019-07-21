@@ -727,7 +727,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.95e-43, y: 0, z: 1.61e-43, w: 0.078125}
+  m_BoundingSphereOverride: {x: 3574.8125, y: 2.8825914e+32, z: 1.85236e+28, w: 6.742551e+22}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1346,7 +1346,7 @@ GameObject:
   - component: {fileID: 1518946230}
   - component: {fileID: 1518946229}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Music Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: event:/Howl_Maintheme_2
+  Event: event:/Music
   PlayEvent: 1
   StopEvent: 2
   CollisionTag: 
@@ -1837,9 +1837,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 358272833, guid: fba0128f45487c843a89d4be6a254b75, type: 3}
-      propertyPath: m_UsedByEffector
-      value: 1
+    - target: {fileID: 1053427979, guid: fba0128f45487c843a89d4be6a254b75, type: 3}
+      propertyPath: ScreechFalloff
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fba0128f45487c843a89d4be6a254b75, type: 3}
