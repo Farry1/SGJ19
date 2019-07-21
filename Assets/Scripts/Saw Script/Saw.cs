@@ -44,12 +44,12 @@ public class Saw : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
+        sawSoundEmitter.SetParameter("VolumeParameter", Mathf.Clamp(MasterControl.Instance.ScreenshakeFrequency, 0, 1));
 
         if (isSawing)
         {
-            sawSoundEmitter.SetParameter("VolumeParameter", Mathf.Clamp(MasterControl.Instance.ScreenshakeFrequency, 0, 1));
+            
 
 
             float xVel = sawRigidbody.gameObject.transform.InverseTransformDirection(sawRigidbody.velocity).x;
