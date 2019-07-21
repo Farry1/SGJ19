@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Saw : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Saw : MonoBehaviour
     ISawable currentSawableObject = null;
     public float sawThreshold=7;
     public bool isInAir = false;
+    public FMODUnity.StudioEventEmitter sawSoundEmitter;
 
     private static Saw _instance;
 
@@ -32,7 +34,7 @@ public class Saw : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -40,7 +42,8 @@ public class Saw : MonoBehaviour
     {
         if (isSawing)
         {
-            
+
+            sawSoundEmitter.Play();
             float xVel = sawRigidbody.gameObject.transform.InverseTransformDirection(sawRigidbody.velocity).x;
             if (Mathf.Abs(xVel) > sawThreshold)
             {
@@ -64,6 +67,8 @@ public class Saw : MonoBehaviour
         }
         else
         {
+            sawSoundEmitter.Stop();
+
             if(currentSawableObject != null)
             {
                 currentSawableObject.EndSaw();
