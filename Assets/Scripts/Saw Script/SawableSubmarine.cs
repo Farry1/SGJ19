@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SawableSubmarine : SawableObject
 {
@@ -29,7 +30,7 @@ public class SawableSubmarine : SawableObject
             {
                 dead = true;
                 Debug.Log("Dead!");
-
+                StartCoroutine("SelfDestruct");
                 submarineRigidbody.isKinematic = false;
                 submarineRigidbody.gravityScale = 0.29f;
                 submarineRigidbody.AddForce(transform.right * -2, ForceMode2D.Impulse);
@@ -39,5 +40,12 @@ public class SawableSubmarine : SawableObject
                 Explode();
             }
         }
+    }
+
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Final");
+        Destroy(this.gameObject);
     }
 }
