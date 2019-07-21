@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using FMODUnity;
 
 public class Saw : MonoBehaviour
 {
@@ -9,9 +8,12 @@ public class Saw : MonoBehaviour
     public Rigidbody2D sawRigidbody;
     public GameObject blood;
     ISawable currentSawableObject = null;
-    public float sawThreshold=7;
+    public float sawThreshold = 7;
     public bool isInAir = false;
     public FMODUnity.StudioEventEmitter sawSoundEmitter;
+
+    public bool sawAudioIsPlaying = false;
+
 
     private static Saw _instance;
 
@@ -34,7 +36,7 @@ public class Saw : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        sawSoundEmitter = GetComponent<FMODUnity.StudioEventEmitter>();
     }
 
     // Update is called once per frame
@@ -42,12 +44,10 @@ public class Saw : MonoBehaviour
     {
         if (isSawing)
         {
-
-            sawSoundEmitter.Play();
             float xVel = sawRigidbody.gameObject.transform.InverseTransformDirection(sawRigidbody.velocity).x;
             if (Mathf.Abs(xVel) > sawThreshold)
             {
-                sawRigidbody.AddForce(-sawRigidbody.transform.up * 100,ForceMode2D.Impulse);
+                sawRigidbody.AddForce(-sawRigidbody.transform.up * 100, ForceMode2D.Impulse);
 
 
                 if (currentSawableObject != null)
@@ -58,8 +58,8 @@ public class Saw : MonoBehaviour
                     obj.transform.position = currentSawableObject.GetCollisionPoint();
                     Quaternion bloodRotation = Quaternion.LookRotation
                     (currentSawableObject.GetCollisionNormal() - (Vector3)sawRigidbody.velocity, transform.TransformDirection(Vector3.down));
-                    obj.transform.rotation = Quaternion.FromToRotation(Vector3.back, new Vector3(currentSawableObject.GetCollisionNormal().x * (2 * xVel), 
-                        currentSawableObject.GetCollisionNormal().y, 
+                    obj.transform.rotation = Quaternion.FromToRotation(Vector3.back, new Vector3(currentSawableObject.GetCollisionNormal().x * (2 * xVel),
+                        currentSawableObject.GetCollisionNormal().y,
                         currentSawableObject.GetCollisionNormal().z));
                 }
             }
@@ -67,26 +67,26 @@ public class Saw : MonoBehaviour
         }
         else
         {
-            sawSoundEmitter.Stop();
-
-            if(currentSawableObject != null)
+            if (currentSawableObject != null)
             {
                 currentSawableObject.EndSaw();
                 currentSawableObject = null;
                 //sawRigidbod.constraints = RigidbodyConstraints2D.None;
             }
-
         }
     }
 
+    private void LateUpdate()
+    {
 
+    }
 
     private void FixedUpdate()
     {
 
     }
 
-    public  Vector3 GetPosition()
+    public Vector3 GetPosition()
     {
         return sawRigidbody.transform.position;
     }
@@ -100,7 +100,7 @@ public class Saw : MonoBehaviour
 
     public void EndSaw()
     {
-        isSawing = false;        
+        isSawing = false;
     }
 
     public void ForceFromAbove(float forcePower)

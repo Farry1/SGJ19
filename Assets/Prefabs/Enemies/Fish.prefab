@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 803366119}
   m_Layer: 10
   m_Name: Fish_Alive
-  m_TagString: Untagged
+  m_TagString: Sawable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,23 +109,22 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.4743798, y: -0.6241884}
-      - {x: 2.9687023, y: -0.17050582}
-      - {x: 4.255465, y: -0.8422196}
-      - {x: 6.2212973, y: -1.4947693}
-      - {x: 4.6802444, y: 0.091234565}
-      - {x: 5.2582803, y: 1.8643078}
-      - {x: 3.780255, y: 0.72817206}
-      - {x: 1.605417, y: 0.056037903}
-      - {x: -0.2592482, y: 1.7500951}
-      - {x: -2.0610614, y: 1.2978163}
-      - {x: -4.5841885, y: 0.9200952}
-      - {x: -5.4217186, y: 0.4886278}
-      - {x: -6.156002, y: -0.4897495}
+    - - {x: 0.8290787, y: -1.9864905}
+      - {x: 2.6819024, y: -1.8196084}
+      - {x: 3.9208636, y: -1.7743212}
+      - {x: 4.524394, y: -1.4708694}
+      - {x: 6.329348, y: -0.21946582}
+      - {x: 6.1529255, y: 0.34697568}
+      - {x: 3.8041549, y: 1.2300723}
+      - {x: 2.633119, y: 1.44224}
+      - {x: 1.2464545, y: 1.6544945}
+      - {x: -2.5868623, y: 0.22231519}
+      - {x: -5.126763, y: 1.7882147}
+      - {x: -4.625942, y: 0.16308314}
+      - {x: -5.8666296, y: -1.2131824}
       - {x: -5.5600595, y: -1.1705966}
-      - {x: -4.4656563, y: -1.5407517}
-      - {x: -3.2436876, y: -1.7207515}
-      - {x: -1.8863124, y: -1.411909}
+      - {x: -3.028587, y: -0.4540496}
+      - {x: -1.3605121, y: -0.9578087}
       - {x: -0.11434314, y: -1.8366587}
 --- !u!50 &4753337139342893253
 Rigidbody2D:
@@ -167,6 +166,7 @@ MonoBehaviour:
   deathFX: {fileID: 1447570533445846305, guid: dba80192d7b3f824587d9ce6bd404430, type: 3}
   dead: 0
   maxHealth: 50
+  throughSound: event:/SawThrough
   alternativeFrontSide: {fileID: 21300000, guid: c185d5d9df9eb934c865474af5b17ef6,
     type: 3}
   backSideGameObject: {fileID: 4753337140268626635}
@@ -508,6 +508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4753337140772257705}
   - component: {fileID: 3130733429293268746}
+  - component: {fileID: 7041670429903685564}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Sawable
@@ -543,3 +544,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuse: 5
+--- !u!61 &7041670429903685564
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4753337140772257706}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 15.43, y: 5.7}
+  m_EdgeRadius: 0

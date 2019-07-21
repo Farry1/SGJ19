@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class SawableFish : SawableObject
 {
@@ -16,12 +17,15 @@ public class SawableFish : SawableObject
     }
 
 
+    [EventRef]
+    public string throughSound;
+
     public Sprite alternativeFrontSide;
     public GameObject backSideGameObject;
 
-  
 
-   
+
+
 
     public override void Explode()
     {
@@ -38,6 +42,7 @@ public class SawableFish : SawableObject
     {
         isBeingSawed = true;
 
+
         if (sawTimer > 1f && !dead)
         {
             sawTimer = 0;
@@ -50,10 +55,12 @@ public class SawableFish : SawableObject
                 MasterControl.Instance.sawLevel += 0.00f;
                 MasterControl.Instance.enemies.Remove(this.gameObject);
 
-                if(moveToLeft != null)
+                FMODUnity.RuntimeManager.PlayOneShot(throughSound);
+
+                if (moveToLeft != null)
                 {
                     moveToLeft.enabled = false;
-                    isBeingSawed = false;                    
+                    isBeingSawed = false;
                 }
 
                 if (backSideGameObject != null)
@@ -70,7 +77,7 @@ public class SawableFish : SawableObject
                 rigidbody.isKinematic = false;
                 rigidbody.AddForce(transform.right * -5, ForceMode2D.Impulse);
 
-                
+
 
                 polygonCollider.enabled = false;
                 saw.ForceFromAbove(250);
