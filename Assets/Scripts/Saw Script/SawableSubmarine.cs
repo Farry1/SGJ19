@@ -45,6 +45,7 @@ public class SawableSubmarine : SawableObject
     IEnumerator SelfDestruct()
     {
         yield return new WaitForSeconds(3);
+        Saw.Instance.sawSoundEmitter.Stop();
         SceneManager.LoadScene("Final");
         Destroy(this.gameObject);
     }

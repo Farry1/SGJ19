@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307bd21ad89166c43a7e40ae8edecd0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityScale: 5
+  gravityScale: 9
   waterSurfaceGameObject: {fileID: 7856536579611625719}
 --- !u!61 &7856536578663697179
 BoxCollider2D:

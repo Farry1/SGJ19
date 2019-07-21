@@ -109,8 +109,10 @@ MonoBehaviour:
   blood: {fileID: 1447570533445846305, guid: dba80192d7b3f824587d9ce6bd404430, type: 3}
   sawThreshold: 5
   isInAir: 0
-  sawSoundEmitter: {fileID: 988846684, guid: fba0128f45487c843a89d4be6a254b75, type: 3}
+  sawSoundEmitter: {fileID: 0}
   sawAudioIsPlaying: 0
+  ScreechFrequency: 0
+  ScreechFalloff: 0.05
 --- !u!114 &380725080591284647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2720294866690151722, guid: 3ab71c32b42098f4293126186832c5a4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2720294866690151722, guid: 3ab71c32b42098f4293126186832c5a4,
         type: 3}
@@ -421,13 +428,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8927807718667219352, guid: 9d712d91adae5ff44b5395af8680f065,
         type: 3}
+      propertyPath: m_Mass
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927807718667219352, guid: 9d712d91adae5ff44b5395af8680f065,
+        type: 3}
       propertyPath: m_LinearDrag
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8927807718667219352, guid: 9d712d91adae5ff44b5395af8680f065,
         type: 3}
       propertyPath: m_AngularDrag
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8927807718667219354, guid: 9d712d91adae5ff44b5395af8680f065,
         type: 3}
@@ -457,13 +469,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8927807718667219355, guid: 9d712d91adae5ff44b5395af8680f065,
         type: 3}
+      propertyPath: IsRight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927807718667219355, guid: 9d712d91adae5ff44b5395af8680f065,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8927807718667219355, guid: 9d712d91adae5ff44b5395af8680f065,
+        type: 3}
       propertyPath: rotationSpeed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8927807718667219355, guid: 9d712d91adae5ff44b5395af8680f065,
         type: 3}
       propertyPath: maxSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d712d91adae5ff44b5395af8680f065, type: 3}
@@ -573,23 +595,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 283772622933760094, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 283772622933760094, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
       propertyPath: rotationSpeed
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 283772622933760094, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}
       propertyPath: maxSpeed
-      value: 10
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 283772622933760095, guid: f6b4b6a8db6c7d8448225860945a9959,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 283772622933760095, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}
       propertyPath: m_LinearDrag
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 283772622933760095, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}
       propertyPath: m_AngularDrag
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 283772622933760161, guid: f6b4b6a8db6c7d8448225860945a9959,
         type: 3}

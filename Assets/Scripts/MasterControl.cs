@@ -120,7 +120,7 @@ public class MasterControl : MonoBehaviour
         {
             tick[2] = 0;
             GameObject e = Instantiate(enemyType[2]);
-            e.transform.position = new Vector3(50, 31.8f - sawLevel*1.1f, 0);
+            e.transform.position = new Vector3(70, 31.8f - sawLevel*1.1f, 0);
             if (gs == MasterControl.GameState.end)
             {
                 e.transform.localScale = tempFishScale;

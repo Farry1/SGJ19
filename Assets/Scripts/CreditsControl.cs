@@ -35,6 +35,7 @@ public class CreditsControl : MonoBehaviour
     {
         if(sawProgress >= 3)
         {
+            Saw.Instance.sawSoundEmitter.Stop();
             SceneManager.LoadScene("MainMenu");
         }
     }

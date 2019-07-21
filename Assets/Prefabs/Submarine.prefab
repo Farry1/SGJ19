@@ -363,7 +363,7 @@ MonoBehaviour:
   fuse: {fileID: 8742957288100802092}
   deathFX: {fileID: 1447570533445846305, guid: dba80192d7b3f824587d9ce6bd404430, type: 3}
   dead: 0
-  maxHealth: 25
+  maxHealth: 100
   submarineRigidbody: {fileID: 374790769}
 --- !u!1 &639417598001790899
 GameObject:

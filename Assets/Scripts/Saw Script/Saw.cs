@@ -10,7 +10,7 @@ public class Saw : MonoBehaviour
     ISawable currentSawableObject = null;
     public float sawThreshold = 7;
     public bool isInAir = false;
-    private FMODUnity.StudioEventEmitter sawSoundEmitter;
+    public FMODUnity.StudioEventEmitter sawSoundEmitter;
 
     public bool sawAudioIsPlaying = false;
 
@@ -68,7 +68,12 @@ public class Saw : MonoBehaviour
 
 
                     currentSawableObject.GetSawed(-sawRigidbody.transform.up);
-                    MasterControl.Instance.Screenshake(0.2f);
+
+                    if(MasterControl.Instance != null)
+                    {
+                        MasterControl.Instance.Screenshake(0.2f);
+                    }
+                    
                     Screech(0.1f);
                     GameObject obj = Instantiate(blood);
                     obj.transform.position = currentSawableObject.GetCollisionPoint();

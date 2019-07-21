@@ -10,6 +10,7 @@ public class SawableMenu : SawableObject
 
     public override void Explode()
     {
+        Saw.Instance.sawSoundEmitter.Stop();
         SceneManager.LoadScene(NextScene);
     }
 
